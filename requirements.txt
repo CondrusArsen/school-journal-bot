@@ -1,0 +1,8 @@
+aiogram
+python-dotenv
+pydantic
+SpeechRecognition
+pydub
+static-ffmpeg
+imageio-ffmpeg
+openpyxl
