@@ -89,9 +89,9 @@ def generate_student_report(first_name, last_name, grades_dict, behavior=None, d
         report += "Это поможет укрепить фундамент знаний по этим дисциплинам.\n\n"
 
     if r_clean:
-        report += f"💡 **Совет от AI:** {r_clean}.\n\n"
+        report += f"💡 **Рекомендация:** {r_clean}.\n\n"
     elif total_avg < 6:
-        report += "💡 **Совет от AI:** Сейчас важно сосредоточиться на регулярном повторении материала и качественном выполнении домашних заданий.\n\n"
+        report += "💡 **Рекомендация:** Сейчас важно сосредоточиться на регулярном повторении материала и качественном выполнении домашних заданий.\n\n"
         
     if teacher_comment:
         formatted_comment = clean_and_format_text(teacher_comment)

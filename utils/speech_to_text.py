@@ -1,14 +1,19 @@
-try:
-    import static_ffmpeg
-    static_ffmpeg.add_paths()
-except ImportError:
-    import logging
-    logging.warning("static_ffmpeg not found. Ensure ffmpeg is installed manually.")
-
 import speech_recognition as sr
 from pydub import AudioSegment
 import os
 import logging
+import shutil
+
+
+def ensure_ffmpeg():
+    """Prepare optional audio tooling only when voice input is requested."""
+    if shutil.which("ffmpeg"):
+        return
+    try:
+        import static_ffmpeg
+        static_ffmpeg.add_paths()
+    except ImportError:
+        logging.warning("static_ffmpeg not found. Ensure ffmpeg is installed manually.")
 
 async def convert_voice_to_text(file_path: str) -> str:
     """
@@ -24,6 +29,7 @@ async def convert_voice_to_text(file_path: str) -> str:
     print(f"Target WAV path: {wav_path}")
     
     try:
+        ensure_ffmpeg()
         # Convert OGG to WAV
         print("Converting OGG to WAV...")
         audio = AudioSegment.from_file(file_path)

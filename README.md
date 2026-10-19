@@ -18,7 +18,7 @@ The project is built with Python, `aiogram`, and SQLite. It focuses on fast day-
   - text format
   - Excel format
 - shows student performance summaries
-- generates structured student feedback reports
+- generates template-based student feedback reports (no AI model or API call)
 - supports a developer mode for system inspection
 - can temporarily disable the bot for regular users through middleware
 
@@ -194,7 +194,9 @@ python bot.py
 python -m unittest discover -s tests
 ```
 
-### Optional Windows helper scripts
+### Optional local Windows helper scripts
+
+The following helper scripts are not included in this repository. Use `python bot.py` for the supported repository entry point.
 
 Run the bot:
 
@@ -251,7 +253,10 @@ Ivanov 5 4 Petrov 3
 
 - The bot interface is currently oriented toward Russian-speaking teachers and schools.
 - SQLite databases are created locally and automatically.
-- Voice recognition depends on the local speech stack and FFmpeg-related tooling.
+- Voice recognition uses Google Speech Recognition through SpeechRecognition; it is not offline. Do not use real student voice/data for a public demo.
+- FFmpeg is prepared only when voice input is requested, so text-only startup and mocked tests do not bootstrap an audio binary.
+- The report generator in `utils/ai_reporter.py` uses rules and text templates despite its historical filename; it does not call an AI model.
+- The current test suite has 18 tests (checked 19 October 2026). Telegram and voice services are mocked; this does not verify a live deployment.
 - Default subjects are preloaded during database initialization.
 
 ## Testing
