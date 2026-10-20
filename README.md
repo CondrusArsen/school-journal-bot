@@ -256,7 +256,7 @@ Ivanov 5 4 Petrov 3
 - Voice recognition uses Google Speech Recognition through SpeechRecognition; it is not offline. Do not use real student voice/data for a public demo.
 - FFmpeg is prepared only when voice input is requested, so text-only startup and mocked tests do not bootstrap an audio binary.
 - The report generator in `utils/ai_reporter.py` uses rules and text templates despite its historical filename; it does not call an AI model.
-- The current test suite has 18 tests (checked 19 October 2026). Telegram and voice services are mocked; this does not verify a live deployment.
+- The test suite has 18 automated tests; Telegram and voice services are mocked.
 - Default subjects are preloaded during database initialization.
 
 ## Testing
@@ -293,4 +293,4 @@ This repository is prepared to exclude local-only files such as:
 
 ## Author
 
-Arseniy Atrokhov
+Arseni Atrokhov
