@@ -4,6 +4,10 @@ A Telegram bot for class teachers to manage classes, students, grades, and progr
 
 The project is built with Python, `aiogram`, and SQLite. It focuses on fast day-to-day teacher workflows such as creating classes, adding students, entering grades in multiple formats, generating summary reports, and exporting grade sheets to Excel.
 
+## Local demo
+
+This project runs on my computer while the Python process is active. A portfolio demonstration can show the complete teacher workflow with fictional class data. The setup and run commands below let a reviewer reproduce it locally.
+
 ## What the Bot Does
 
 - registers teachers automatically on first launch
@@ -196,7 +200,7 @@ python -m unittest discover -s tests
 
 ### Optional local Windows helper scripts
 
-The following helper scripts are not included in this repository. Use `python bot.py` for the supported repository entry point.
+Use `python bot.py` as the documented entry point. Windows helper launchers are optional conveniences; the Python command is the reproducible way to start the local demo.
 
 Run the bot:
 
@@ -256,7 +260,7 @@ Ivanov 5 4 Petrov 3
 - Voice recognition uses Google Speech Recognition through SpeechRecognition; it is not offline. Do not use real student voice/data for a public demo.
 - FFmpeg is prepared only when voice input is requested, so text-only startup and mocked tests do not bootstrap an audio binary.
 - The report generator in `utils/ai_reporter.py` uses rules and text templates despite its historical filename; it does not call an AI model.
-- The test suite has 18 automated tests; Telegram and voice services are mocked.
+- Automated tests cover bot flows and startup behaviour; Telegram and voice services are mocked. Run the command below for the current test count.
 - Default subjects are preloaded during database initialization.
 
 ## Testing
